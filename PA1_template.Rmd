@@ -14,11 +14,13 @@ dailySteps <- aggregate(data$steps, by = list(data$date), FUN="sum", na.rm=TRUE)
 ```
 
 ## What is mean total number of steps taken per day?
-
-
 ```{r}
 hist(dailySteps[,2], breaks = 15, col = "red", main = "Daily Step Frequency", 
      xlab = "Steps")
+```
+
+Here are the mean and median:
+```{r}
 meanSteps <- mean(dailySteps[,2])
 medianSteps <- median(dailySteps[,2])
 
@@ -78,6 +80,7 @@ differ from the estimates from the first part of the assignment? What is the
 impact of imputing missing data on the estimates of the total daily number of 
 steps?
 
+Here are the mean and median:
 ```{r}
 impDailySteps <- aggregate(impData$steps, by = list(impData$date), FUN="sum", 
                            na.rm=TRUE)

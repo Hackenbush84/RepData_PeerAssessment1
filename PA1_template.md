@@ -11,14 +11,14 @@ dailySteps <- aggregate(data$steps, by = list(data$date), FUN="sum", na.rm=TRUE)
 
 ## What is mean total number of steps taken per day?
 
-
-
 ```r
 hist(dailySteps[,2], breaks = 15, col = "red", main = "Daily Step Frequency", 
      xlab = "Steps")
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+
+Here are the mean and median:
 
 ```r
 meanSteps <- mean(dailySteps[,2])
@@ -49,7 +49,7 @@ plot(dailyStepPattern$Group.1,dailyStepPattern$x, type = "l",
      Each Time Interval")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 
 ###Time Interval with Maximum Average Step Count:
@@ -104,6 +104,7 @@ differ from the estimates from the first part of the assignment? What is the
 impact of imputing missing data on the estimates of the total daily number of 
 steps?
 
+Here are the mean and median:
 
 ```r
 impDailySteps <- aggregate(impData$steps, by = list(impData$date), FUN="sum", 
@@ -128,7 +129,7 @@ hist(impDailySteps[,2], breaks = 15, col = "red", main = "Daily Step Frequency",
      xlab = "Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
 The data with imputed missing values had many fewer days with very low step
 counts. This is consistent with the hypothesis that daily step counts are 
@@ -165,5 +166,5 @@ xyplot(x ~ Group.1 | Group.2 , impDailyStepPattern, type = "l",
        main = "Mean Steps for Each Time Interval")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
